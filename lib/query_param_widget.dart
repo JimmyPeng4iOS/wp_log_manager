@@ -5,7 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 class QueryParamWidget extends StatefulWidget {
   const QueryParamWidget({Key? key, required this.queryCallback})
       : super(key: key);
-  final void Function(Uri uri, Map<String, dynamic> param) queryCallback;
+  final void Function(Uri uri) queryCallback;
   @override
   _QueryParamWidgetState createState() => _QueryParamWidgetState();
 }
@@ -21,20 +21,16 @@ class _QueryParamWidgetState extends State<QueryParamWidget> {
     '视频 video'
   ];
 
-  static const String weplay_main_host = "weplayapp.com";
+  static const String wespy_main_host = "17zjh.com";
   static const String path = "activity_v1/common/get_log";
   List<String> areas = <String>[
-    '华语服 admin-api',
-    '华测服 admin-dev-api',
-    '日服 admin-api-tky',
-    '日测服 admin-dev-api-tky',
-    '阿语服 admin-api-ar',
-    '阿测服 admin-dev-api-ar',
+    '正式服 wespyadminapi',
+    '测试服 wespy-admin-dev-api',
   ];
   String dropdownValue = '日志 Logs';
-  String areaValue = '华语服 admin-api';
+  String areaValue = '正式服 wespyadminapi';
 
-  String uri_name = 'admin-api';
+  String uri_name = 'wespyadminapi';
   String func_name = 'Logs';
 
   bool env_debug = false;
@@ -83,16 +79,17 @@ class _QueryParamWidgetState extends State<QueryParamWidget> {
   }
 
   _buildUrI() {
-    String authority = uri_name + "." + weplay_main_host;
+    String authority = uri_name + "." + wespy_main_host;
 
-    Uri uri = Uri.https(authority, path);
-    widget.queryCallback(uri, {
+    var param = {
       "uid": controller.text,
       "func_name": func_name,
-      "page": 1,
-      "page_size": 100,
+      "page": "1",
+      "page_size": "100",
       "key": "huiwan@wepie2019!"
-    });
+    };
+    Uri uri = Uri.https(authority, path, param);
+    widget.queryCallback(uri);
   }
 
   _unzip() {
@@ -120,7 +117,8 @@ class _QueryParamWidgetState extends State<QueryParamWidget> {
             dropdownValue = newValue!;
             func_name = dropdownValue.split(' ').last;
             //以前字段叫agora 为了避免误解 对外显示voice
-            func_name.replaceFirst('voice', 'agora');
+            func_name = func_name.replaceFirst('voice', 'agora');
+            int i = 0;
           });
         },
         style: const TextStyle(color: Colors.black),

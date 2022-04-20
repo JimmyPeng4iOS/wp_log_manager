@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:wp_log_manager/query_param_widget.dart';
-import 'package:wp_log_manager/query_result_widget.dart';
+import 'package:wp_log_manager_flutter/query_param_widget.dart';
+import 'package:wp_log_manager_flutter/query_result_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -51,12 +51,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   var datas = [];
 
-  void getHttp(Uri uri, Map<String, dynamic> param) async {
+  void getHttp(Uri uri) async {
     try {
       Dio dio = Dio();
       dio.options.responseType = ResponseType.json; //数据格式
       dio.options.baseUrl = uri.toString();
-      Response response = await dio.get("path", queryParameters: param);
+      Response response = await dio.getUri(uri);
       setState(() {
         datas = response.data['result'];
       });
@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _buildTimeText() {
     //将时间字符串转为时间对象
-    DateTime now = new DateTime(2021, 8, 21, 19, 50);
+    DateTime now = new DateTime(2022, 4, 20, 15, 50);
     return Text('build_time: ' + now.toString());
   }
 
@@ -87,9 +87,8 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             _buildTimeText(),
-            QueryParamWidget(
-                queryCallback: (Uri uri, Map<String, dynamic> param) {
-              getHttp(uri, param);
+            QueryParamWidget(queryCallback: (Uri uri) {
+              getHttp(uri);
             }),
             Expanded(
                 child: this.datas.length > 0
