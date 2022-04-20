@@ -1,4 +1,4 @@
-# wp_log_manager
+# wp_log_manager_flutter
 
 A new Flutter project.
 

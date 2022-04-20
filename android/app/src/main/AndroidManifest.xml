@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.wepie.wplog.wp_log_manager">
+    package="com.example.wp_log_manager_flutter">
    <application
-        android:label="wp_log_manager"
+        android:label="wp_log_manager_flutter"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
