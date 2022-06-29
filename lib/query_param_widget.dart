@@ -30,6 +30,8 @@ class _QueryParamWidgetState extends State<QueryParamWidget> {
     '日测服 admin-dev-api-tky',
     '阿语服 admin-api-ar',
     '阿测服 admin-dev-api-ar',
+    '韩语服 admin-api-sel',
+    '韩测服 admin-dev-api-sel',
   ];
   String dropdownValue = '日志 Logs';
   String areaValue = '华语服 admin-api';
