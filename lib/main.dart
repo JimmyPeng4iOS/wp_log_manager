@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
       Dio dio = Dio();
       dio.options.responseType = ResponseType.json; //数据格式
       dio.options.baseUrl = uri.toString();
-      Response response = await dio.get("path", queryParameters: param);
+      Response response = await dio.get("", queryParameters: param);
       setState(() {
         datas = response.data['result'];
       });
