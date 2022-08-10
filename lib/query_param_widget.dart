@@ -15,7 +15,7 @@ class _QueryParamWidgetState extends State<QueryParamWidget> {
   List<String> options = <String>[
     '日志 Logs',
     '收据 receipt',
-    '语音日志 voice',
+    '语音日志 agora',
     '安卓日志 android_log',
     '自定义路径 custom',
     '视频 video'
@@ -121,8 +121,6 @@ class _QueryParamWidgetState extends State<QueryParamWidget> {
           setState(() {
             dropdownValue = newValue!;
             func_name = dropdownValue.split(' ').last;
-            //以前字段叫agora 为了避免误解 对外显示voice
-            func_name.replaceFirst('voice', 'agora');
           });
         },
         style: const TextStyle(color: Colors.black),
