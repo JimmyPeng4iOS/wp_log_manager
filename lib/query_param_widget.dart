@@ -28,8 +28,8 @@ class _QueryParamWidgetState extends State<QueryParamWidget> {
     '华测服 admin-dev-api',
     '日服 admin-api-tky',
     '日测服 admin-dev-api-tky',
-    '阿语服 admin-api-ar',
-    '阿测服 admin-dev-api-ar',
+    '阿语服 admin-api-fra',
+    '阿测服 admin-dev-api-fra',
     '韩语服 admin-api-sel',
     '韩测服 admin-dev-api-sel',
     '泰服 admin-api-bkk',
@@ -58,7 +58,7 @@ class _QueryParamWidgetState extends State<QueryParamWidget> {
           Container(
             width: 150,
             height: 44,
-            child: FlatButton(
+            child: MaterialButton(
               color: Colors.blueAccent,
               onPressed: () {
                 _buildUrI();
@@ -72,7 +72,7 @@ class _QueryParamWidgetState extends State<QueryParamWidget> {
           Container(
             width: 150,
             height: 44,
-            child: FlatButton(
+            child: MaterialButton(
               color: Colors.blueAccent,
               onPressed: () {
                 _unzip();
