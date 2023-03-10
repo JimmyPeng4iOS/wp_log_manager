@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _buildTimeText() {
     //将时间字符串转为时间对象
-    DateTime now = new DateTime(2022, 8, 10, 19, 50);
+    DateTime now = new DateTime(2023, 3, 10, 10, 00);
     return Text('build_time: ' + now.toString());
   }
 
